@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('rule', function (Blueprint $table) {
             $table->id();
-            $table->string('tindakan_id');
-            $table->longText('gejala_id');
+            $table->string('tindakan_kode');
+            $table->string('gejala_kode');
             $table->timestamps();
         });
     }

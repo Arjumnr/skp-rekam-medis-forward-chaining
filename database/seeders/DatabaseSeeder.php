@@ -31,6 +31,12 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
         ]);
 
+        $this->call([
+            GejalaSeeder::class,
+            TindakanSeeder::class,
+            CfUserSeeder::class,
+        ]);
+
         
     }
 }

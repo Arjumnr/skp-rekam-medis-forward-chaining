@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pasien', function (Blueprint $table) {
+        Schema::create('cf_user', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_lengkap');
-            $table->enum('jk', ['Laki-laki', 'Perempuan']);
-            $table->text('alamat');
-            $table->date('ttl');
-            $table->string('no_hp');
+            $table->string('ungkapan');
+            $table->float('nilai_cf_user');
             $table->timestamps();
         });
     }

@@ -31,7 +31,7 @@
                     <div class="row">
                         <div class="col mb-3">
                             <label for="ttl" class="form-label">Tanggal Lahir</label>
-                            <input class="form-control" type="date" value="00-00-0000" id="html5-date-input"
+                            <input class="form-control" type="date" value="2000-01-01" id="html5-date-input"
                                 name="ttl">
                         </div>
                     </div>
@@ -207,7 +207,7 @@
                 })
             });
 
-            
+
             $('body').on('click', '.delete', function() {
 
                 var id = $(this).data("id");
@@ -271,14 +271,14 @@
                 var data_id = $(this).data('id');
                 $.get("{{ route('pasien') }}" + '/' + data_id + '/edit', function(data) {
                     console.log("data id = " + data.id);
-                    console.log("ttl" + data.ttl);
+                    // console.log("ttl" + data.ttl);
                     $('#modalHeading').html("Edit Data");
                     $('#btnSave').val("edit-data");
                     $('#basicModal').modal('show');
                     $('#data_id').val(data_id);
                     $('#nama_lengkap').val(data.nama_lengkap);
                     $('#jk').val(data.jk).trigger('change');
-                    $('#ttl').val(data.ttl).append()
+                    document.getElementById('html5-date-input').value = data.ttl;
                     $('#no_hp').val(data.no_hp);
                     $('#alamat').val(data.alamat);
 

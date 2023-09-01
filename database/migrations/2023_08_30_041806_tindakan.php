@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('gejala', function (Blueprint $table) {
+        Schema::create('tindakan', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_tindakan');
-            $table->longText('des_tindakan');
+            $table->string('kode_tindakan')->unique();
+            $table->string('nama_tindakan');
+            // $table->float('cf');
+            // $table->text('des_tindakan');
             $table->timestamps();
         });
     }
