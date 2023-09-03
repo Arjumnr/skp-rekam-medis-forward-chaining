@@ -19,6 +19,15 @@
         </li>
 
         @if (session('role') == 1)
+            <li class="menu-item @stack('Users')">
+                <a href="{{ route('user') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx  bx-table"></i>
+                    <div data-i18n="Analytics">Users</div>
+                </a>
+            </li>
+        @endif
+
+        @if (session('role') == 1)
             <li class="menu-item @stack('Pasien')">
                 <a href="{{ route('pasien') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-table"></i>
@@ -26,12 +35,39 @@
                 </a>
             </li>
         @endif
-        {{-- <li class="menu-item @stack('Opsi')">
-            <a href="{{ route('opsi') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx  bx-table"></i>
-                <div data-i18n="Analytics">Data Opsi</div>
-            </a>
-        </li> --}}
 
+        @if (session('role') == 1)
+            <li class="menu-item @stack('Gejala')">
+                <a href="{{ route('gejala') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx  bx-table"></i>
+                    <div data-i18n="Analytics">Gejala</div>
+                </a>
+            </li>
+        @endif
+
+        @if (session('role') == 1)
+            <li class="menu-item @stack('Tindakan')">
+                <a href="{{ route('tindakan') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx  bx-table"></i>
+                    <div data-i18n="Analytics">Tindakan</div>
+                </a>
+            </li>
+        @endif
+
+        @if (session('role') == 1)
+            <li class="menu-item @stack('Rule')">
+                <a href="{{ route('rule') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx  bx-table"></i>
+                    <div data-i18n="Analytics">Rule</div>
+                </a>
+            </li>
+        @endif
+
+        <li class="menu-item @stack('Datas')">
+            <a href="{{ route('datas') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx  bx-table"></i>
+                <div data-i18n="Analytics">Data Rekam Medis</div>
+            </a>
+        </li>
     </ul>
 </aside>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_gejala')->unique();
             $table->text('des_gejala');
+            $table->float('cf_gejala')->nullable();
             $table->timestamps();
         });
     }

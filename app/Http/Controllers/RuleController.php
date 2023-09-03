@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\ModelGejala;
+use App\Models\ModelRule;
+use App\Models\ModelTindakan;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
-class GejalaController extends Controller
+class RuleController extends Controller
 {
     public function index(Request $request){
-        $title = 'Gejala';
+        $title = 'Rule';
         // $role = Auth::user()->role;
-        $data = ModelGejala::all()->sortByDesc('id');
+        $data = ModelRule::all()->sortByDesc('id');
+        $dataTindakan = ModelTindakan::all()->sortByDesc('id');
+        $dataGejala = ModelGejala::all()->sortByDesc('id');
         if ($request->ajax()) {
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -29,20 +33,22 @@ class GejalaController extends Controller
                 ->make(true);
         }
 
-        return view('admin.gejala.index', compact('title'));
+        return view('admin.rule.index', compact('title', 'dataTindakan', 'dataGejala'));
 
     }
 
     public function store(Request $request)
     {
-        try {
+        $selectedGejalaKode = $request->gejala_kode;
 
-            ModelGejala::updateOrCreate(
+        // Convert the array to a comma-separated string
+        $gejalaKodeString = implode(',', $selectedGejalaKode);
+        try {
+            ModelRule::updateOrCreate(
                 ['id' => $request->data_id],
                 [
-                    'kode_gejala' => $request->kode_gejala,
-                    'des_gejala' => $request->des_gejala,
-                    'cf_gejala' => $request->cf_gejala  ,
+                    'tindakan_kode' => $request->tindakan_kode,
+                    'gejala_kode' => $gejalaKodeString,
                 ]
             );
             return response()->json(['status' => 'success', 'message' => 'Save data successfully.']);
@@ -53,14 +59,14 @@ class GejalaController extends Controller
 
     public function edit($id)
     {
-        $data = ModelGejala::find($id);
+        $data = ModelRule::find($id);
         return response()->json($data);
     }
 
     public function destroy($id)
     {
         try {
-            ModelGejala::find($id)->delete();
+            ModelRule::find($id)->delete();
             return response()->json(['status' => 'success', 'message' => 'Data deleted successfully.']);
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);

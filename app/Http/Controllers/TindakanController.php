@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelGejala;
+use App\Models\ModelTindakan;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables;
+use Yajra\DataTables\Facades\DataTables;
 
-class GejalaController extends Controller
+class TindakanController extends Controller
 {
     public function index(Request $request){
-        $title = 'Gejala';
+        $title = 'Tindakan';
         // $role = Auth::user()->role;
-        $data = ModelGejala::all()->sortByDesc('id');
+        $data = ModelTindakan::all()->sortByDesc('id');
         if ($request->ajax()) {
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -29,7 +29,7 @@ class GejalaController extends Controller
                 ->make(true);
         }
 
-        return view('admin.gejala.index', compact('title'));
+        return view('admin.tindakan.index', compact('title'));
 
     }
 
@@ -37,12 +37,11 @@ class GejalaController extends Controller
     {
         try {
 
-            ModelGejala::updateOrCreate(
+            ModelTindakan::updateOrCreate(
                 ['id' => $request->data_id],
                 [
-                    'kode_gejala' => $request->kode_gejala,
-                    'des_gejala' => $request->des_gejala,
-                    'cf_gejala' => $request->cf_gejala  ,
+                    'kode_tindakan' => $request->kode_tindakan,
+                    'nama_tindakan' => $request->nama_tindakan,
                 ]
             );
             return response()->json(['status' => 'success', 'message' => 'Save data successfully.']);
@@ -53,14 +52,14 @@ class GejalaController extends Controller
 
     public function edit($id)
     {
-        $data = ModelGejala::find($id);
+        $data = ModelTindakan::find($id);
         return response()->json($data);
     }
 
     public function destroy($id)
     {
         try {
-            ModelGejala::find($id)->delete();
+            ModelTindakan::find($id)->delete();
             return response()->json(['status' => 'success', 'message' => 'Data deleted successfully.']);
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage()]);

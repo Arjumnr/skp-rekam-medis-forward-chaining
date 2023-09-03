@@ -20,7 +20,7 @@
                     <div class="col-xxl-4 col-md-6">
                         <div class="card info-card sales-card">
                             <div class="card-body">
-                                <h5 class="card-title">Jumlah Pertanyaan</h5>
+                                <h5 class="card-title">Jumlah Pasien</h5>
 
                                 <div class="d-flex align-items-center justify-content-around">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -29,7 +29,41 @@
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-person"></i>
                                     </div>
-                                    {{-- <h1>{{ $jumlahPertanyaan }}</h1> --}}
+                                    <h1>10</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Jumlah TIndakan</h5>
+
+                                <div class="d-flex align-items-center justify-content-around">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                    <h1>{{ $jumlahTindakan }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-4 col-md-6">
+                        <div class="card info-card sales-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Jumlah Gejala</h5>
+
+                                <div class="d-flex align-items-center justify-content-around">
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+                                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                    <h1>{{ $jumlahGejala }}</h1>
                                 </div>
                             </div>
                         </div>
