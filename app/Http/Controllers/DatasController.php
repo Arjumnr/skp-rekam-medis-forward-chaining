@@ -90,13 +90,6 @@ class DatasController extends Controller
             $CFuser[] = floatval($value);
         }
         
-
-        // return response()->json([
-        //     'CFpakar' => $CFpakar,
-        //     'CFuser' => $CFuser
-        // ]);
-
-
         //kalikan CF pakar dengan CF user
         $CFsementara = [];
         foreach($CFpakar as $key => $value){
@@ -150,11 +143,6 @@ class DatasController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Save data failed.']);
         }
       
-        
-
-
-
-           
         } catch (\Exception $e) {
             return response()->json(['status' => 'error', 'message' => $e->getMessage(), 'line' => $e->getLine()]);
         }

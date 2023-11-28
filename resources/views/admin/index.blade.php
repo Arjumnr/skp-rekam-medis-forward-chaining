@@ -29,7 +29,7 @@
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-person"></i>
                                     </div>
-                                    <h1>10</h1>
+                                    <h1>{{ $jumlahPasien }}</h1>
                                 </div>
                             </div>
                         </div>
