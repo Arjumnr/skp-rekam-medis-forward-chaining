@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 03, 2023 at 11:33 PM
+-- Generation Time: Dec 05, 2023 at 04:19 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -65,8 +65,9 @@ CREATE TABLE `datas` (
 --
 
 INSERT INTO `datas` (`id`, `pasien_id`, `data_terapis`, `created_at`, `updated_at`) VALUES
-(3, '1', '{\"gejala\":[[\"G06\",\"G05\",\"G04\",\"G03\",\"G02\",\"G01\"]],\"cf\":[[\"0.4\",\"0.4\",\"0.4\",\"0.4\",\"0.4\",\"0.4\"]],\"kode_tindakan\":\"T01\",\"total_cf\":0.787}', '2023-09-03 14:06:00', '2023-09-03 14:06:00'),
-(5, '1', '{\"gejala\":[[\"G35\",\"G34\",\"G33\",\"G32\",\"G31\",\"G30\",\"G29\"]],\"cf\":[[\"1\",\"1\",\"1\",\"1\",\"1\",\"1\",\"1\"]],\"kode_tindakan\":\"T05\",\"total_cf\":1.32}', '2023-09-03 15:18:39', '2023-09-03 15:18:39');
+(13, '1', '{\"gejala\":[[\"G10\",\"G09\",\"G02\",\"G01\"]],\"cf\":[[\"0.4\",\"0.4\",\"0.4\",\"0.4\"]],\"kode_tindakan\":\"T01\",\"total_cf\":0.666}', '2023-12-05 06:12:42', '2023-12-05 06:12:42'),
+(14, '1', '{\"gejala\":[[\"G13\",\"G12\",\"G03\",\"G02\"]],\"cf\":[[\"0.4\",\"0.4\",\"0.4\",\"0.4\"]],\"kode_tindakan\":\"T05\",\"total_cf\":0.666}', '2023-12-05 06:23:20', '2023-12-05 06:23:20'),
+(16, '1', '{\"gejala\":[[\"G10\",\"G09\",\"G02\",\"G01\"]],\"cf\":[[\"0.8\",\"1\",\"0.8\",\"1\"]],\"kode_tindakan\":\"T01\",\"total_cf\":0.957}', '2023-12-05 06:28:23', '2023-12-05 06:28:23');
 
 -- --------------------------------------------------------
 
@@ -104,41 +105,23 @@ CREATE TABLE `gejala` (
 --
 
 INSERT INTO `gejala` (`id`, `kode_gejala`, `des_gejala`, `cf_gejala`, `created_at`, `updated_at`) VALUES
-(1, 'G01', 'gangguan pada fungsi berbicara', 0.60, NULL, NULL),
-(2, 'G02', 'gangguan pada fungsi mengunyah makanan', 0.40, NULL, '2023-09-03 13:08:39'),
-(3, 'G03', 'gangguan pada fungsi menelan makanan', 0.60, NULL, NULL),
-(4, 'G04', 'gangguan pada fungsi mengisap', 0.60, NULL, NULL),
-(5, 'G05', 'gangguan pada fungsi pernapasan', 0.60, NULL, NULL),
-(6, 'G06', 'air liur berlebihan', 0.60, NULL, NULL),
-(7, 'G07', 'gangguan pada mental atau perilaku', 0.60, NULL, NULL),
-(8, 'G08', 'lambat merespon', 0.60, NULL, NULL),
-(9, 'G09', 'susah fokus', 0.60, NULL, NULL),
-(10, 'G10', 'sensitif dan mudah tersinggung', 0.60, NULL, NULL),
-(11, 'G11', 'sering merasa tegang', 0.60, NULL, NULL),
-(12, 'G12', 'merasakan tekanan pisikologis', 0.60, NULL, NULL),
-(13, 'G13', 'tidak bergairah dan kehilangan energi', 0.60, NULL, NULL),
-(14, 'G14', 'emosi yang berlebihan dan susah dikontrol', 0.60, NULL, NULL),
-(15, 'G15', 'hidung pesek', 0.60, NULL, NULL),
-(16, 'G16', 'mata kecil atau sipit', 0.60, NULL, NULL),
-(17, 'G17', 'telinga kecil', 0.60, NULL, NULL),
-(18, 'G18', 'lidah besar', 0.60, NULL, NULL),
-(19, 'G19', 'perawakan pendek atauu trisomi', 0.60, NULL, NULL),
-(20, 'G20', 'kelemahan otot', 0.60, NULL, NULL),
-(21, 'G21', 'kelumpuhan otot', 0.60, NULL, NULL),
-(22, 'G22', 'susah tidur', 0.60, NULL, NULL),
-(23, 'G23', 'pencernaan tidak lancar', 0.60, NULL, NULL),
-(24, 'G24', 'nyeri sendi atau saraf', 0.60, NULL, NULL),
-(25, 'G25', 'sering sakit kepala', 0.60, NULL, NULL),
-(26, 'G26', 'kelelahan', 0.60, NULL, NULL),
-(27, 'G27', 'otot terasa kaku', 0.60, NULL, NULL),
-(28, 'G28', 'pembengkakan otot', 0.60, NULL, NULL),
-(29, 'G29', 'gangguan emosi', 0.60, NULL, NULL),
-(30, 'G30', 'lumpuh layuh', 0.60, NULL, NULL),
-(31, 'G31', 'autis', 0.60, NULL, NULL),
-(32, 'G32', 'epilepsi', 0.60, NULL, NULL),
-(33, 'G33', 'hiperaktif', 0.60, NULL, NULL),
-(34, 'G34', 'kelainan genetik', 0.60, NULL, NULL),
-(35, 'G35', 'susah memahami bahasa', 0.60, NULL, NULL);
+(1, 'G01', 'demam', 0.60, NULL, NULL),
+(2, 'G02', 'batuk', 0.60, NULL, '2023-09-03 13:08:39'),
+(3, 'G03', 'hidung tersumbat', 0.60, NULL, NULL),
+(4, 'G04', 'sakit kepala', 0.60, NULL, NULL),
+(5, 'G05', 'susah tidur', 0.60, NULL, NULL),
+(6, 'G06', 'tidak nafsu makan', 0.60, NULL, NULL),
+(7, 'G07', 'sesak nafas', 0.60, NULL, NULL),
+(8, 'G08', 'pilek', 0.60, NULL, NULL),
+(9, 'G09', 'mual/muntah', 0.60, NULL, NULL),
+(10, 'G10', 'badan lemas', 0.60, NULL, NULL),
+(11, 'G11', 'emosi berlebih', 0.60, NULL, NULL),
+(12, 'G12', 'pencernaan tidak lancar', 0.60, NULL, NULL),
+(13, 'G13', 'sensitif dan mudah tersinggung', 0.60, NULL, NULL),
+(14, 'G14', 'lambat merespon', 0.60, NULL, NULL),
+(15, 'G15', 'kulit terasa gatal', 0.60, NULL, NULL),
+(16, 'G16', 'gatal dan perih', 0.60, NULL, NULL),
+(17, 'G17', 'pembengkakan otot', 0.60, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -242,11 +225,11 @@ CREATE TABLE `rule` (
 --
 
 INSERT INTO `rule` (`id`, `tindakan_kode`, `gejala_kode`, `created_at`, `updated_at`) VALUES
-(2, 'T02', 'G14,G13,G12,G11,G10,G09,G08,G07', '2023-09-02 08:20:18', '2023-09-02 08:20:18'),
-(3, 'T03', 'G21,G20,G19,G18,G17,G16,G15', '2023-09-02 08:20:35', '2023-09-02 08:20:35'),
-(4, 'T04', 'G28,G27,G26,G25,G24,G23,G22', '2023-09-02 08:20:51', '2023-09-02 08:20:51'),
-(5, 'T05', 'G35,G34,G33,G32,G31,G30,G29', '2023-09-02 08:21:31', '2023-09-02 08:21:31'),
-(6, 'T01', 'G06,G05,G04,G03,G02,G01', '2023-09-03 14:12:35', '2023-09-03 15:30:08');
+(2, 'T02', 'G09,G08,G07,G06,G05,G04,G03,G02,G01', '2023-09-02 08:20:18', '2023-11-27 03:11:37'),
+(3, 'T03', 'G14,G13,G12,G11,G04', '2023-09-02 08:20:35', '2023-12-05 06:24:54'),
+(4, 'T04', 'G17,G16,G15,G08,G02', '2023-09-02 08:20:51', '2023-11-27 03:12:58'),
+(5, 'T05', 'G13,G12,G03,G02', '2023-09-02 08:21:31', '2023-11-27 03:13:41'),
+(6, 'T01', 'G10,G09,G02,G01', '2023-09-03 14:12:35', '2023-11-27 03:10:53');
 
 -- --------------------------------------------------------
 
@@ -388,7 +371,7 @@ ALTER TABLE `cf_user`
 -- AUTO_INCREMENT for table `datas`
 --
 ALTER TABLE `datas`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`

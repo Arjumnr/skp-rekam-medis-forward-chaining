@@ -100,15 +100,22 @@ class DatasController extends Controller
         $i=0;
         // $CFlama = $CFsementara[0];
 
-        // return response()->json(count($CFsementara));
+        // return response()->json($CFsementara);
         // total_cf = (𝐶𝐹𝑙𝑎𝑚𝑎, 𝐶𝐹𝑏𝑎𝑟𝑢) = 𝐶𝐹𝑙𝑎𝑚𝑎 + 𝐶𝐹𝑏𝑎𝑟𝑢 * (1 − 𝐶F𝑙𝑎𝑚𝑎)
         foreach($CFsementara as $key){
             $i++;
             if ($i == count($CFsementara)) {
-                $total_cf = $total_cf + $CFsementara[$key] * (1 - $CFsementara[$key]);
+                $total_cf = $total_cf + $CFsementara[$key] * (1 - $total_cf);
+                // return response()->json([
+                //     'total_cf' => $total_cf 
+                // ]);
             }else{
                 $total_cf = $CFsementara[$key] + $CFsementara[$key+1] * (1 - $CFsementara[$key]);
-                $total_cf = $total_cf + $CFsementara[$key+1] * (1 - $CFsementara[$key+1]);
+               
+                $total_cf = $total_cf + $CFsementara[$key+1] * (1 - $total_cf);
+                // return response()->json([
+                //     'total_cf' => $total_cf,
+                // ]);
             }
             
             $total_cf = round($total_cf, 3);
